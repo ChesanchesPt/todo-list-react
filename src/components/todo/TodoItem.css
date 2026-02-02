@@ -1,0 +1,31 @@
+.todo-item {
+  display: flex;
+  background-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1016px;
+  height: 126px;
+  padding: 16px;
+  gap: 8px;
+  margin-inline: auto;
+}
+
+.text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  max-width: 908px;
+  flex: 1;
+  min-width: none;
+}
+
+.checkbox-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  width: 44px;
+  border-left: 1px solid black;
+}
