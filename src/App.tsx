@@ -1,30 +1,27 @@
-import "./App.css";
-
-import type { Todo } from "./types/todo";
-import { TodoList } from "./components/todo/TodoList";
-import { AddTodoForm } from "./components/todo/AddTodoForm";
 import { useState } from "react";
 
+import { TodoList } from "./components/todo/TodoList";
+import { TodoModal } from "./components/todo/TodoModal";
+import { useLocalStorageTodos } from "./components/hooks/useTodos";
+import { ButtonSquare } from "./components/ui/buttonSquare";
+import "./App.css";
+
 export default function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  function addTodo(title: string, description?: string) {
-    const newTodo: Todo = {
-      id: `${todos.length + 1}`,
-      title,
-      description,
-      completed: false,
-    };
-
-    setTodos((prev) => [...prev, newTodo]);
-  }
+  const { todos, addTodo } = useLocalStorageTodos("todos");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <>
+    <main>
       <h1>TODO лист</h1>
       <p>Запишите все свои задачи списком</p>
       <TodoList todos={todos} />
-      <AddTodoForm onAdd={addTodo} />
-    </>
+      <TodoModal onAdd={addTodo} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ButtonSquare
+        icon="src\assets\plus.svg"
+        alt="Добавить задачу"
+        size="medium"
+        onClick={() => setIsModalOpen(true)}
+      />
+    </main>
   );
 }

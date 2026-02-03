@@ -11,7 +11,7 @@ export function TodoItem({ todo }: TodoItemProps) {
     <div className="todo-item">
       <h2>{todo.id}</h2>
       <div className="text-column">
-        <h2>{todo.title}</h2>
+        <h3>{todo.title}</h3>
         {todo.description && <p>{todo.description}</p>}
       </div>
       <div className="checkbox-column">

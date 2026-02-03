@@ -1,0 +1,27 @@
+.button-square {
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.button-square--medium {
+  width: 36px;
+  height: 36px;
+}
+
+.button-square img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.button-square--small {
+  background-color: #f6f7f8;
+  width: 32px;
+  height: 32px;
+}

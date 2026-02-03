@@ -5,9 +5,11 @@
   width: 100%;
   max-width: 1016px;
   height: 126px;
-  padding: 16px;
-  gap: 8px;
   margin-inline: auto;
+}
+
+.todo-item h2 {
+  padding: 16px 0px 0px 16px;
 }
 
 .text-column {
@@ -18,6 +20,12 @@
   max-width: 908px;
   flex: 1;
   min-width: none;
+  margin: 16px;
+}
+
+.text-column p {
+  width: 100%;
+  overflow: auto;
 }
 
 .checkbox-column {
@@ -27,5 +35,5 @@
   justify-content: center;
   gap: 17px;
   width: 44px;
-  border-left: 1px solid black;
+  border-left: 2px solid black;
 }
