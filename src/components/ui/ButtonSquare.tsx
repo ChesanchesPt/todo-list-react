@@ -1,7 +1,7 @@
 import "./ButtonSquare.css";
 import React from "react";
 
-type ButtonSize = "small" | "medium";
+type ButtonSize = "small" | "medium" | "large";
 
 interface ButtonSquareProps {
   icon: string;

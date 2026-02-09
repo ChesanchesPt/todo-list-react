@@ -1,30 +1,44 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import React from "react";
+import { useEffect, useState } from "react";
+
 import { ButtonSquare } from "../ui/buttonSquare";
 import "./TodoModal.css";
+import type { Todo } from "../../types/todo";
 
 interface TodoModalProps {
   isOpen: boolean;
   onClose: () => void;
   onAdd: (title: string, description?: string) => void;
+  onUpdate: (id: string, title: string, description?: string) => void;
+  editingTodo: Todo | null;
 }
 
-export function TodoModal({ isOpen, onClose, onAdd }: TodoModalProps) {
+export function TodoModal({ isOpen, onClose, onAdd, onUpdate, editingTodo }: TodoModalProps) {
+  useEffect(() => {
+    if (editingTodo) {
+      setTitle(editingTodo.title);
+      setDescription(editingTodo.description || "");
+    } else {
+      setTitle("");
+      setDescription("");
+    }
+  }, [editingTodo]);
+
   const [title, setTitle] = useState("");
 
   const [description, setDescription] = useState("");
 
   if (!isOpen) return null;
 
-  function handleSubmit(event: React.SyntheticEvent) {
-    event.preventDefault();
-
+  function handleSubmit() {
     if (!title.trim()) return;
 
-    onAdd(title, description);
-    setTitle("");
-    setDescription("");
+    if (editingTodo) {
+      onUpdate(editingTodo.id, title, description);
+    } else {
+      onAdd(title, description);
+    }
+
     onClose();
   }
 
@@ -33,9 +47,9 @@ export function TodoModal({ isOpen, onClose, onAdd }: TodoModalProps) {
       <div className="modal-container">
         <ButtonSquare
           className="close-button"
-          icon="src\assets\close.svg"
+          icon="src/assets/close.svg"
           alt="Закрыть окно"
-          size="small"
+          size="medium"
           onClick={onClose}
         />
         <input
@@ -53,9 +67,9 @@ export function TodoModal({ isOpen, onClose, onAdd }: TodoModalProps) {
         />
         <ButtonSquare
           className="submit-button"
-          icon="src\assets\check.svg"
+          icon="src/assets/check.svg"
           alt="Добавить задачу"
-          size="small"
+          size="medium"
           onClick={handleSubmit}
           disabled={!title.trim()}
         />

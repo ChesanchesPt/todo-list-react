@@ -9,7 +9,7 @@
   flex-shrink: 0;
 }
 
-.button-square--medium {
+.button-square--large {
   width: 36px;
   height: 36px;
 }
@@ -20,8 +20,14 @@
   height: 100%;
 }
 
-.button-square--small {
+.button-square--medium {
   background-color: #f6f7f8;
   width: 32px;
   height: 32px;
+}
+
+.button-square--small {
+  padding: 0;
+  width: 24px;
+  height: 24px;
 }
