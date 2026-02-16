@@ -9,7 +9,9 @@
 }
 
 .todo-item h2 {
-  padding: 16px 0px 0px 16px;
+  font-size: 20px;
+  width: 34px;
+  margin: 16px 8px 16px 16px;
 }
 
 .text-column {
@@ -20,7 +22,7 @@
   max-width: 908px;
   flex: 1;
   min-width: none;
-  margin: 16px;
+  margin: 16px 16px 16px 0px;
 }
 
 .text-column p {

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 
-import { ButtonSquare } from "../ui/buttonSquare";
+import { ButtonSquare } from "../buttons/buttonSquare";
 import "./TodoModal.css";
 import type { Todo } from "../../types/todo";
 

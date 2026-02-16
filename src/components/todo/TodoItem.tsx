@@ -1,11 +1,11 @@
 import "./TodoItem.css";
 
 import type { Todo } from "../../types/todo";
-import { ButtonSquare } from "../ui/buttonSquare";
+import { ButtonSquare } from "../buttons/buttonSquare";
 
 interface TodoItemProps {
   todo: Todo;
-  order: number;
+  order: string;
   onDelete: () => void;
   onEdit: () => void;
   onCheck: () => void;

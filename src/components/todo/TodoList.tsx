@@ -17,7 +17,7 @@ export function TodoList({ todos, onDeleteTodo, onEditTodo, onToggleTodo }: Todo
         <TodoItem
           key={todo.id}
           todo={todo}
-          order={index + 1}
+          order={(index + 1).toString().padStart(2, "0")}
           onDelete={() => onDeleteTodo(todo.id)}
           onEdit={() => onEditTodo(todo)}
           onCheck={() => onToggleTodo(todo.id)}
