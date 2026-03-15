@@ -5,6 +5,9 @@
   position: fixed;
   left: 0;
   top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .sidebar.open {

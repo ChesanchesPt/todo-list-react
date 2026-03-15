@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TodoList } from "../components/todo/TodoList";
 import { TodoModal } from "../components/todo/TodoModal";
 import { useLocalStorageTodos } from "../components/hooks/useTodos";
-import { ButtonSquare } from "../components/buttons/buttonSquare";
+import { ButtonSquare } from "../components/buttons/ButtonSquare";
 import type { Todo } from "../types/todo";
 
 export function TodosPage() {

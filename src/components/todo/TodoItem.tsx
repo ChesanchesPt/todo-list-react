@@ -1,7 +1,7 @@
 import "./TodoItem.css";
 
 import type { Todo } from "../../types/todo";
-import { ButtonSquare } from "../buttons/buttonSquare";
+import { ButtonSquare } from "../buttons/ButtonSquare";
 
 interface TodoItemProps {
   todo: Todo;

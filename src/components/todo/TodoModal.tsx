@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 
-import { ButtonSquare } from "../buttons/buttonSquare";
+import { ButtonSquare } from "../buttons/ButtonSquare";
 import "./TodoModal.css";
 import type { Todo } from "../../types/todo";
 
@@ -14,6 +14,9 @@ interface TodoModalProps {
 }
 
 export function TodoModal({ isOpen, onClose, onAdd, onUpdate, editingTodo }: TodoModalProps) {
+  const [title, setTitle] = useState("");
+
+  const [description, setDescription] = useState("");
   useEffect(() => {
     if (editingTodo) {
       setTitle(editingTodo.title);
@@ -24,9 +27,11 @@ export function TodoModal({ isOpen, onClose, onAdd, onUpdate, editingTodo }: Tod
     }
   }, [editingTodo]);
 
-  const [title, setTitle] = useState("");
-
-  const [description, setDescription] = useState("");
+  const handleClose = () => {
+    setTitle("");
+    setDescription("");
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -39,7 +44,7 @@ export function TodoModal({ isOpen, onClose, onAdd, onUpdate, editingTodo }: Tod
       onAdd(title, description);
     }
 
-    onClose();
+    handleClose();
   }
 
   return (
@@ -50,7 +55,7 @@ export function TodoModal({ isOpen, onClose, onAdd, onUpdate, editingTodo }: Tod
           icon="src/assets/close.svg"
           alt="Закрыть окно"
           size="medium"
-          onClick={onClose}
+          onClick={handleClose}
         />
         <input
           className="title-input"
